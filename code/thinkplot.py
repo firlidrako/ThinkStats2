@@ -402,6 +402,7 @@ def Hist(hist, **options):
       options: keyword args passed to plt.bar
     """
     # find the minimum distance between adjacent values
+    
     xs, ys = hist.Render()
 
     # see if the values support arithmetic

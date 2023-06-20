@@ -159,7 +159,7 @@ class _DictWrapper(object):
         elif isinstance(obj, (_DictWrapper, Cdf, Pdf)):
             self.d.update(obj.Items())
         elif isinstance(obj, pandas.Series):
-            self.d.update(obj.value_counts().iteritems())
+            self.d.update(obj.value_counts().items())
         else:
             # finally, treat it like a list
             self.d.update(Counter(obj))
@@ -2816,7 +2816,7 @@ class FixedWidthVariables(object):
         self.colspecs = variables[['start', 'end']] - index_base
 
         # convert colspecs to a list of pair of int
-        self.colspecs = self.colspecs.astype(np.int).values.tolist()
+        self.colspecs = self.colspecs.astype(np.int64).values.tolist()
         self.names = variables['name']
 
     def ReadFixedWidth(self, filename, **options):
